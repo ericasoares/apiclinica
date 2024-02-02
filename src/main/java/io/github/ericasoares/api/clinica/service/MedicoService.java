@@ -1,6 +1,7 @@
 package io.github.ericasoares.api.clinica.service;
 
 import io.github.ericasoares.api.clinica.domain.Medico;
+import io.github.ericasoares.api.clinica.domain.dto.MedicoDetail;
 import io.github.ericasoares.api.clinica.domain.dto.MedicoOutBound;
 import io.github.ericasoares.api.clinica.repository.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class MedicoService {
         var medico = repository.getReferenceById(dados.getId());
         medico.atualizarDados(dados);
 
-        return new ResponseEntity<>(repository.save(medico), HttpStatus.CREATED);
+        return new ResponseEntity<>(repository.save(medico), HttpStatus.OK);
     }
 
     public Page listar(Pageable paginacao) {
@@ -52,4 +53,8 @@ public class MedicoService {
         return repository.findAll(paginacao).map(MedicoOutBound::new);
     }
 
+    public ResponseEntity<MedicoDetail> detalhar(Long id) {
+        var medico = repository.getReferenceById(id);
+        return ResponseEntity.ok(new MedicoDetail(medico));
+    }
 }

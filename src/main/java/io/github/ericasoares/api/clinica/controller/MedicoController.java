@@ -1,11 +1,13 @@
 package io.github.ericasoares.api.clinica.controller;
 
 import io.github.ericasoares.api.clinica.domain.Medico;
+import io.github.ericasoares.api.clinica.domain.dto.MedicoDetail;
 import io.github.ericasoares.api.clinica.domain.dto.MedicoDto;
 import io.github.ericasoares.api.clinica.domain.dto.MedicoOutBound;
 import io.github.ericasoares.api.clinica.domain.dto.MedicoUpdate;
 import io.github.ericasoares.api.clinica.service.MedicoService;
 import jakarta.validation.Valid;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,11 +22,14 @@ public class MedicoController {
     @Autowired
     private MedicoService service;
 
+    @Autowired
+    private ModelMapper mapper;
 
     @PostMapping
-    public void cadastrar(@RequestBody @Valid MedicoDto medicoDto){
+    public ResponseEntity<Medico> cadastrar(@RequestBody @Valid MedicoDto medicoDto){
         Medico medico = new Medico(medicoDto);
-        service.cadastrar(medico);
+        //var medico = mapper.map(medicoDto, Medico.class);
+        return service.cadastrar(medico);
     }
 
     @GetMapping
@@ -51,6 +56,11 @@ public class MedicoController {
     @GetMapping("/listarTodos")
     public Page<MedicoOutBound> listarTodos(Pageable paginacao) {
         return service.listarTodos(paginacao);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<MedicoDetail> detalhar(@PathVariable Long id){
+        return service.detalhar(id);
     }
 
 }
