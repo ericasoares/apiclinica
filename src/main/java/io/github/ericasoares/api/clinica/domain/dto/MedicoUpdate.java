@@ -7,6 +7,6 @@ public record MedicoUpdate(
     Long id,
     String nome,
     String telefone,
-    EnderecoDto enderecoDto
+    EnderecoDto endereco
 ) {
 }

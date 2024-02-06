@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Table(name = "medico")
-@Entity(name = "medico")
+@Entity(name = "Medico")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -17,7 +17,7 @@ public class Medico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     private String nome;
     private String email;
     private String telefone;
@@ -38,14 +38,14 @@ public class Medico {
         this.telefone = medicoDto.telefone();
         this.crm = medicoDto.crm();
         this.especialidade = medicoDto.especialidade();
-        this.endereco = new Endereco(medicoDto.enderecoDto());
+        this.endereco = new Endereco(medicoDto.endereco());
     }
     public Medico(MedicoUpdate medicoDto) {
-        this.Id = medicoDto.id();
+        this.id = medicoDto.id();
         this.nome = medicoDto.nome();
         this.telefone = medicoDto.telefone();
-        if(medicoDto.enderecoDto() != null) {
-            this.endereco = new Endereco(medicoDto.enderecoDto());
+        if(medicoDto.endereco() != null) {
+            this.endereco = new Endereco(medicoDto.endereco());
         }
     }
 

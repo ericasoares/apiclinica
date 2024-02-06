@@ -22,6 +22,6 @@ public record MedicoDto(
         Especialidade especialidade,
         @NotNull(message ="Endereço do médico não pode ser nulo")
         @Valid
-        EnderecoDto enderecoDto
+        EnderecoDto endereco
 ) {
 }

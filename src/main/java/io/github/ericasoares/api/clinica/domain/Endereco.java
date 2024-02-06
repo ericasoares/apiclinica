@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Table(name = "endereco")
-@Entity(name = "endereco")
+@Entity(name = "Endereco")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -15,7 +15,7 @@ public class Endereco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     private String logradouro;
     private String bairro;
     private String cep;

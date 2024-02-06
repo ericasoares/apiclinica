@@ -14,4 +14,5 @@ public record MedicoOutBound(
     public MedicoOutBound(Medico medico) {
         this(medico.getId(), medico.getNome(), medico.getEmail(), medico.getCrm(), medico.getEspecialidade());
     }
+
 }
