@@ -1,4 +1,4 @@
-package io.github.ericasoares.api.clinica.exceptions;
+package io.github.ericasoares.api.clinica.infra.exceptions;
 
 import org.springframework.validation.FieldError;
 

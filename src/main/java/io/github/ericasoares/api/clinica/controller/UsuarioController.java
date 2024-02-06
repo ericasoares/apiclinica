@@ -1,9 +1,9 @@
 package io.github.ericasoares.api.clinica.controller;
 
 import io.github.ericasoares.api.clinica.domain.Usuario;
-import io.github.ericasoares.api.clinica.domain.dto.TokenJWT;
 import io.github.ericasoares.api.clinica.domain.dto.UsuarioDto;
-import io.github.ericasoares.api.clinica.service.token.TokenService;
+import io.github.ericasoares.api.clinica.infra.token.TokenJWT;
+import io.github.ericasoares.api.clinica.infra.token.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

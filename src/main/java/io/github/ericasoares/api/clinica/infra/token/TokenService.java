@@ -1,4 +1,4 @@
-package io.github.ericasoares.api.clinica.service.token;
+package io.github.ericasoares.api.clinica.infra.token;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
